@@ -1,58 +1,83 @@
+/* General */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
 main {
   padding: 0 96px;
 }
+
 /* HEADER */
 .navbar {
-  background-color: lightgrey;
+  background-color: #4CAF50;
   width: 100%;
   height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar ul {
-  background-color: rgb(233, 230, 230);
   width: 100%;
   height: 56px;
   display: flex;
   list-style-type: none;
   padding: 0;
+  margin: 0;
   justify-content: center;
-  /* gap: 8px */
 }
 
 .navbar ul li {
   padding: 16px;
-  border-right: 1px solid lightgrey;
+  border-right: 1px solid #388E3C;
+}
+
+.navbar ul li:last-child {
+  border-right: none;
 }
 
 .navbar ul li:hover {
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  background-color: #66BB6A;
 }
 
 .navbar ul li a {
- text-decoration: none;
- color: unset;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
 }
 
 /* MAIN */
 .title {
   text-align: center;
+  margin-top: 20px;
+  font-size: 2.5em;
+  color: #333;
 }
 
 /* Sections */
-
 section {
   padding: 16px 24px;
   margin-bottom: 48px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 section:not(.presentacion) {
-  border: 1px solid lightgrey;
-  border-radius: 5px;
+  border: 1px solid #ddd;
 }
 
 /* Section - Presentacion */
 .presentacion {
-  background-color: #f0f0f0;
+  background-color: #E0F7FA;
   margin-top: 20px;
 }
 
@@ -69,13 +94,36 @@ section:not(.presentacion) {
 /* Section - Intereses */
 .flex-grid {
   display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.flex-grid .grid-item {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
 }
 
 .flex-grid img {
-  width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .interest-title {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
